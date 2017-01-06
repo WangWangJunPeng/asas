@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <!-- namespace为dao层接口全限定名 -->
+<mapper namespace="me.lv.dao.ItemsDao">
+	<resultMap type="me.lv.pojo.Items" id="itemsResultMap">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="REAL" />
+		<result column="detail" property="detail" javaType="String"/>
+		<result column="pic" property="pic" jdbcType="VARCHAR" />
+		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<select id="selectItems" resultMap="itemsResultMap">
+		select id, name, price,detail, pic,
+		createtime from items
+	</select>
+
+</mapper>
